@@ -66,9 +66,14 @@ export class OfertasService {
         reject({ codigo_erro: 404, mensagem_erro: 'Servidor não encontrado'})
       }
     })
-    .then(( ofertas: any) => {
+    .then(( ofertas: any ) => {
       //fazer alguma tratativa
       console.log('primeiro then')
+      return ofertas
+    })
+    .then(( ofertas: any ) => {
+      //fazer outra tratativa
+      console.log('segundo then')
       return ofertas
     })
   }
