@@ -6,8 +6,6 @@ import { URL_API } from './app.api'
 @Injectable()
 export class OfertasService {
 
-  // private url_api = 'http://localhost:3000/ofertas'
-
   constructor(private http: HttpClient) {}
 
   public getOfertas(): Promise<Oferta[]> {
