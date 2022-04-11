@@ -46,10 +46,10 @@ export class OfertasService {
   }
 
   public pesquisaOfertas(termo: string): Observable<Oferta[]> {
-    return this.http.get(`${URL_API}/ofertas?descricao_oferta=${termo}`)
+    return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`)
     //converter retorno do observable do metodo get, em um objeto literal, que eh o que esperamos emitir
     //Angular 7+ (pipe(map))
-      .pipe(map((resposta: any) => resposta.json()))
+      .pipe(map((resposta: any) => resposta))
   }
 
 }
