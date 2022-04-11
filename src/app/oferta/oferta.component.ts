@@ -21,6 +21,12 @@ export class OfertaComponent implements OnInit {
   ngOnInit(): void {
     this.ofertasService.getOfertaPorId(this.route.snapshot.params['id'])
       .then(( oferta: Oferta ) => this.oferta = oferta)
+
+    this.route.params.subscribe(
+      (parametro: any) => console.log(parametro),
+      (erro: any) => console.log(erro),
+      () => console.log('processamento foi classificado como concluído!')//! so sera executado quando finalizar o Observable, e por padrão, ele sempre fica escutando
+    )
   }
 
 }
