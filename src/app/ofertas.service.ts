@@ -3,6 +3,10 @@ import { Injectable } from '@angular/core'
 import { Oferta } from "./shared/oferta.model"
 import { URL_API } from './app.api'
 
+import { Observable } from 'rxjs'
+//Angular 7+
+import { map } from 'rxjs/operators'
+
 @Injectable()
 export class OfertasService {
 
@@ -39,6 +43,13 @@ export class OfertasService {
     return this.http.get(`${URL_API}/onde-fica?id=${id}`)
       .toPromise()
       .then((resposta: any) => resposta[0].descricao)
+  }
+
+  public pesquisaOfertas(termo: string): Observable<Oferta[]> {
+    return this.http.get(`${URL_API}/ofertas?descricao_oferta=${termo}`)
+    //converter retorno do observable do metodo get, em um objeto literal, que eh o que esperamos emitir
+    //Angular 7+ (pipe(map))
+      .pipe(map((resposta: any) => resposta.json()))
   }
 
 }
