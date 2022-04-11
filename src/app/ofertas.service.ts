@@ -6,6 +6,7 @@ import { URL_API } from './app.api'
 import { Observable } from 'rxjs'
 //Angular 7+
 import { map } from 'rxjs/operators'
+import { retry } from 'rxjs/operators'
 
 @Injectable()
 export class OfertasService {
@@ -49,7 +50,7 @@ export class OfertasService {
     return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`)
     //converter retorno do observable do metodo get, em um objeto literal, que eh o que esperamos emitir
     //Angular 7+ (pipe(map))
-      .pipe(map((resposta: any) => resposta))
+      .pipe(retry(10), map((resposta: any) => resposta))
   }
 
 }
