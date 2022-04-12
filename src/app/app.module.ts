@@ -24,6 +24,9 @@ import { registerLocaleData } from '@angular/common';
 registerLocaleData(localePtBr)
 //
 
+//pipe
+import { DescricaoReduzida } from './util/descricao-reduzida.pipe'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +37,10 @@ registerLocaleData(localePtBr)
     DiversaoComponent,
     OfertaComponent,
     ComoUsarComponent,
-    OndeFicaComponent
+    OndeFicaComponent,
+//pipe
+    DescricaoReduzida
+//
   ],
   imports: [
     BrowserModule,
