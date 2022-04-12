@@ -12,6 +12,8 @@ import { of } from 'rxjs'
 
 import { distinctUntilChanged } from 'rxjs/operators'
 
+import { catchError } from 'rxjs/operators'
+
 @Component({
   selector: 'app-topo',
   templateUrl: './topo.component.html',
@@ -39,6 +41,12 @@ export class TopoComponent implements OnInit {
         }
 
         return this.ofertasService.pesquisaOfertas(termo)
+      }),
+      catchError((erro: any) => {
+        console.log(erro)
+        //encaminhamos tbm um observable com array vazio
+        //desta forma, apesar da notificação, nossa aplicação não quebra
+        return of<Oferta[]>([])
       })
     )
 
