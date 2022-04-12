@@ -17,6 +17,13 @@ import { OfertaComponent } from './oferta/oferta.component';
 import { ComoUsarComponent } from './oferta/como-usar/como-usar.component';
 import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
 
+//Adicionando Localizade BRASIL para a aplicacão
+import { LOCALE_ID } from '@angular/core'
+import localePtBr from '@angular/common/locales/pt'
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localePtBr)
+//
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +42,9 @@ import { OndeFicaComponent } from './oferta/onde-fica/onde-fica.component';
     //ROTAS angular 7+
     AppRoutingModule
   ],
-  providers: [],
+// Adicionando Localizade BRASIL para a aplicacão
+  providers: [{ provide: LOCALE_ID, useValue: 'pt-Br' }],
+//
   bootstrap: [AppComponent]
 })
 export class AppModule { }
