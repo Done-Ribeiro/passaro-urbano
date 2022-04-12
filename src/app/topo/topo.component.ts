@@ -4,15 +4,9 @@ import { OfertasService } from '../ofertas.service'
 import { Observable } from 'rxjs'
 import { Oferta } from '../shared/oferta.model'
 
-import { Subject } from 'rxjs'
-import { switchMap } from 'rxjs/operators'
-import { debounceTime } from 'rxjs/operators'
+import { Subject, of } from 'rxjs'
+import { switchMap, debounceTime, distinctUntilChanged, catchError } from 'rxjs/operators'
 
-import { of } from 'rxjs'
-
-import { distinctUntilChanged } from 'rxjs/operators'
-
-import { catchError } from 'rxjs/operators'
 
 @Component({
   selector: 'app-topo',
