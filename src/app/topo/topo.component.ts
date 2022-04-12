@@ -8,6 +8,8 @@ import { Subject } from 'rxjs'
 import { switchMap } from 'rxjs/operators'
 import { debounceTime } from 'rxjs/operators'
 
+import { of } from 'rxjs'
+
 @Component({
   selector: 'app-topo',
   templateUrl: './topo.component.html',
@@ -27,6 +29,12 @@ export class TopoComponent implements OnInit {
       debounceTime(1000),//executa a ação do switchMap após 1s
       switchMap((termo: string) => {
         console.log('requisição http para api')
+
+        if (termo.trim() === '') {
+          //retornar um observable de array de ofertas vazio
+          return of<Oferta[]>([])
+        }
+
         return this.ofertasService.pesquisaOfertas(termo)
       })
     )
