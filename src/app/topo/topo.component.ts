@@ -24,6 +24,8 @@ export class TopoComponent implements OnInit {
 
   public ofertas!: Observable<Oferta[]>
 
+  public ofertas2!: Oferta[]
+
   public subjectPesquisa: Subject<string> = new Subject<string>()
 
   constructor(private ofertasService: OfertasService) { }
@@ -31,10 +33,11 @@ export class TopoComponent implements OnInit {
   ngOnInit(): void {
     this.ofertas = this.subjectPesquisa.pipe(//retorno Oferta[]
       debounceTime(1000),//executa a ação do switchMap após 1s
-      distinctUntilChanged(),
+      distinctUntilChanged(),//para fazer pesquisar distintas
       switchMap((termo: string) => {
         console.log('requisição http para api')
 
+        //* se a pesquisa, for uma string vazia
         if (termo.trim() === '') {
           //retornar um observable de array de ofertas vazio
           return of<Oferta[]>([])
@@ -50,7 +53,11 @@ export class TopoComponent implements OnInit {
       })
     )
 
-    this.ofertas.subscribe((ofertas: Oferta[]) => console.log(ofertas))
+    //! aqui eh onde é feita a chamada do nosso observable -> this.ofertas
+    this.ofertas.subscribe((ofertas: Oferta[]) => {
+      console.log(ofertas)
+      this.ofertas2 = ofertas//? aqui é a associação do array de ofertas
+    })
   }
 
   public pesquisa(termoDaBusca: string): void {
