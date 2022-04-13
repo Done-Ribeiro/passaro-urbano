@@ -6,8 +6,6 @@ Boostrap 4
 JQuery
 <code>npm install jquery@3.2.1 --save</code>
 
-Tether
-<code>npm install tether@1.4.0 --save</code>
 
 ## Configurando Dependências
 Abra o arquivo <code>angular.json</code> e procure por:
