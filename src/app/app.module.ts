@@ -25,7 +25,8 @@ registerLocaleData(localePtBr)
 //
 
 //pipe
-import { DescricaoReduzida } from './util/descricao-reduzida.pipe'
+import { DescricaoReduzida } from './util/descricao-reduzida.pipe';
+import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DescricaoReduzida } from './util/descricao-reduzida.pipe'
     ComoUsarComponent,
     OndeFicaComponent,
 //pipe
-    DescricaoReduzida
+    DescricaoReduzida,
+OrdemCompraComponent
 //
   ],
   imports: [
