@@ -30,6 +30,9 @@ export class OrdemCompraComponent implements OnInit {
   //controlar botão confirmar compra
   public formEstado: string = 'disabled'
 
+  //Pedido
+  public pedido: Pedido = new Pedido('', '', '', '')
+
   constructor(private ordemCompraService: OrdemCompraService) { }
 
   ngOnInit(): void {
@@ -101,6 +104,15 @@ export class OrdemCompraComponent implements OnInit {
     } else [
       this.formEstado = 'disabled'
     ]
+  }
+
+  public confirmarCompra(): void {
+    this.pedido.endereco = this.endereco
+    this.pedido.numero = this.numero
+    this.pedido.complemento = this.complemento
+    this.pedido.formaPagamento = this.formaPagamento
+
+    this.ordemCompraService.efetivarCompra(this.pedido)
   }
 
 }
