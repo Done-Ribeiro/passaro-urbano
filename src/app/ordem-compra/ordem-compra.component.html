@@ -71,7 +71,7 @@
         <div class="form-group col-md-6">
           <input
             type="text"
-            class="form-control {{ enderecoValido ? 'is-valid' : 'is-invalid' }}"
+            class="form-control {{ enderecoEstadoPrimitivo ? '' : (enderecoValido ? 'is-valid' : 'is-invalid') }}"
             placeholder="Endereço"
             autocomplete="off"
             minlength="5"
@@ -87,7 +87,7 @@
           <input
             type="text"
             class="form-control"
-            [class]="numeroValido ? 'is-valid' : 'is-invalid'"
+            [class]="numeroEstadoPrimitivo ? '' : (numeroValido ? 'is-valid' : 'is-invalid')"
             placeholder="Número"
             autocomplete="off"
             minlength="1"
@@ -102,7 +102,7 @@
         <div class="form-group col-md-4">
           <input
             type="text"
-            class="form-control {{ complementoValido ? 'is-valid' : '' }}"
+            class="form-control {{ complementoEstadoPrimitivo ? '' : (complementoValido ? 'is-valid' : '') }}"
             placeholder="Complemento"
             autocomplete="off"
             [value]="complemento"
@@ -121,7 +121,7 @@
 
         <div class="form-group col-md-3">
           <select
-            class="form-control {{ formaPagamentoValido ? 'is-valid' : 'is-invalid' }}"
+            class="form-control {{ formaPagamentoEstatoPrimitivo ? '' : (formaPagamentoValido ? 'is-valid' : 'is-invalid') }}"
             #selectFormaPagamento
             (change)="atualizaFormaPagamento(selectFormaPagamento.value)"
           >
