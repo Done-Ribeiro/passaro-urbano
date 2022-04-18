@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { OrdemCompraService } from '../ordem-compra.service'
 import { Pedido } from '../shared/pedido.model'
 
@@ -32,6 +32,8 @@ export class OrdemCompraComponent implements OnInit {
 
   //Pedido
   public pedido: Pedido = new Pedido('', '', '', '')
+
+  public idPedidoCompra!: number
 
   constructor(private ordemCompraService: OrdemCompraService) { }
 
@@ -113,7 +115,9 @@ export class OrdemCompraComponent implements OnInit {
     this.pedido.formaPagamento = this.formaPagamento
 
     this.ordemCompraService.efetivarCompra(this.pedido)
-      .subscribe()
+      .subscribe((idPedido: number) => {
+        this.idPedidoCompra = idPedido
+      })
   }
 
 }
