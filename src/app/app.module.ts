@@ -25,10 +25,13 @@ registerLocaleData(localePtBr)
 //
 
 //pipe
-import { DescricaoReduzida } from './util/descricao-reduzida.pipe';
-import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component';
+import { DescricaoReduzida } from './util/descricao-reduzida.pipe'
+
+import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component'
 import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra-sucesso.component'
 
+//FormsModule
+import { FormsModule } from '@angular/forms'
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,15 +45,16 @@ import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra
     OndeFicaComponent,
 //pipe
     DescricaoReduzida,
-OrdemCompraComponent,
-OrdemCompraSucessoComponent
 //
+    OrdemCompraComponent,
+    OrdemCompraSucessoComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     //ROTAS angular 7+
-    AppRoutingModule
+    AppRoutingModule,
   ],
 // Adicionando Localizade BRASIL para a aplicacão
   providers: [{ provide: LOCALE_ID, useValue: 'pt-Br' }],
