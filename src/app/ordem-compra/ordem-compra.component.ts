@@ -35,10 +35,8 @@ export class OrdemCompraComponent implements OnInit {
     if (this.formulario.status === 'INVALID') {
       console.log('formulário inválido')
 
-      this.formulario.get('endereco')?.markAsTouched()
-      this.formulario.get('numero')?.markAsTouched()
-      this.formulario.get('complemento')?.markAsTouched()
-      this.formulario.get('formaPagamento')?.markAsTouched()
+      //* nova forma de marcas todos com os campos com touched
+      this.formulario.markAllAsTouched()
 
     } else {
       console.log('formulário está válido')
