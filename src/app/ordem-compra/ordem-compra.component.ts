@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { OrdemCompraService } from '../ordem-compra.service'
 import { Pedido } from '../shared/pedido.model'
 
+import { FormControl, FormGroup } from '@angular/forms'
+
 @Component({
   selector: 'app-ordem-compra',
   templateUrl: './ordem-compra.component.html',
@@ -10,10 +12,17 @@ import { Pedido } from '../shared/pedido.model'
 })
 export class OrdemCompraComponent implements OnInit {
 
+  public formulario: FormGroup = new FormGroup({
+    'endereco': new FormControl(null),
+    'numero': new FormControl(null),
+    'complemento': new FormControl(null),
+    'formaPagamento': new FormControl(null)
+  })
+
   constructor(private ordemCompraService: OrdemCompraService) { }
 
   ngOnInit() {
-    
+
   }
 
   public confirmarCompra(): void {
