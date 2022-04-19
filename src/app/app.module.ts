@@ -30,8 +30,12 @@ import { DescricaoReduzida } from './util/descricao-reduzida.pipe'
 import { OrdemCompraComponent } from './ordem-compra/ordem-compra.component'
 import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra-sucesso.component'
 
-//FormsModule
-import { FormsModule } from '@angular/forms'
+// //FormsModule
+// import { FormsModule } from '@angular/forms'
+
+//ReactiveFormsModule
+import { ReactiveFormsModule } from '@angular/forms'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +56,8 @@ import { FormsModule } from '@angular/forms'
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule,
+    // FormsModule,
+    ReactiveFormsModule,
     //ROTAS angular 7+
     AppRoutingModule,
   ],
