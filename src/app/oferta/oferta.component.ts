@@ -36,11 +36,13 @@ export class OfertaComponent implements OnInit, OnDestroy {
       this.ofertasService.getOfertaPorId(parametros.id)//passa o novo parametro (id)
         .then(( oferta: Oferta ) => this.oferta = oferta)//e resolve a promise, atualizando o conteudo de this.oferta
     })//volta a ficar escutando, porque eh uma promise sendo resolvida dentro de um observable
-
-    console.log('Oferta - Array de itens do carrinho: ', this.carrinhoService.exibirItens())
   }
 
   ngOnDestroy(): void {
+  }
+
+  public adicionarItemCarrinho(): void {
+    this.carrinhoService.incluirItem(this.oferta)
   }
 
 }
