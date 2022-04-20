@@ -5,11 +5,13 @@ import { Oferta } from '../shared/oferta.model'
 
 import { Params } from '@angular/router'
 
+import CarrinhoService from '../carrinho.service'
+
 @Component({
   selector: 'app-oferta',
   templateUrl: './oferta.component.html',
   styleUrls: ['./oferta.component.css'],
-  providers: [ OfertasService ]
+  providers: [ OfertasService, CarrinhoService ]
 })
 export class OfertaComponent implements OnInit, OnDestroy {
 
@@ -17,7 +19,8 @@ export class OfertaComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private ofertasService: OfertasService
+    private ofertasService: OfertasService,
+    private carrinhoService: CarrinhoService
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +37,7 @@ export class OfertaComponent implements OnInit, OnDestroy {
         .then(( oferta: Oferta ) => this.oferta = oferta)//e resolve a promise, atualizando o conteudo de this.oferta
     })//volta a ficar escutando, porque eh uma promise sendo resolvida dentro de um observable
 
+    console.log('Oferta - Array de itens do carrinho: ', this.carrinhoService.exibirItens())
   }
 
   ngOnDestroy(): void {
