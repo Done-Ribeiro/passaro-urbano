@@ -9,7 +9,6 @@ class CarrinhoService {
   }
 
   public incluirItem(oferta: Oferta): void {
-    // console.log('Oferta recebida no servico: ', oferta)
     let itemCarrinho: ItemCarrinho = new ItemCarrinho(
       oferta.id,
       oferta.imagens[0],
