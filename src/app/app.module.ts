@@ -36,6 +36,7 @@ import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra
 //ReactiveFormsModule
 import { ReactiveFormsModule } from '@angular/forms'
 
+import { CarrinhoService } from './carrinho.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,11 @@ import { ReactiveFormsModule } from '@angular/forms'
     AppRoutingModule,
   ],
 // Adicionando Localizade BRASIL para a aplicacão
-  providers: [{ provide: LOCALE_ID, useValue: 'pt-Br' }],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt-Br' },
+    //servico no escopo do modulo
+    CarrinhoService
+  ],
 //
   bootstrap: [AppComponent]
 })
