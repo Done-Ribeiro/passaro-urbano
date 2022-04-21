@@ -19,7 +19,19 @@ class CarrinhoService {
       1
     )
 
-    this.itens.push(itemCarrinho)
+    //verificar se o item em questão já não existe dentro de this.itens
+    let itemCarrinhoEncontrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id)
+
+    //o find acima, retorna uma referencia para o itemCarrinho (encontrado)
+
+    if (itemCarrinhoEncontrado) {
+      //nesse caso, ele existe dentro do array de itens
+      //vamos recuperar a referencia dele, e somar a quantidade
+      itemCarrinhoEncontrado.quantidade++
+    } else {
+      this.itens.push(itemCarrinho)
+    }
+
   }
 }
 
