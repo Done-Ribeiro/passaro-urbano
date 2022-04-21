@@ -1,11 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Params } from '@angular/router'
 import { OfertasService } from '../ofertas.service'
-import { Oferta } from '../shared/oferta.model'
-
-import { Params } from '@angular/router'
-
 import { CarrinhoService } from '../carrinho.service'
+import { Oferta } from '../shared/oferta.model'
 
 @Component({
   selector: 'app-oferta',

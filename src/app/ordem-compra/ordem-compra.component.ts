@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { OrdemCompraService } from '../ordem-compra.service'
-import { Pedido } from '../shared/pedido.model'
-
 import { FormControl, FormGroup, Validators } from '@angular/forms'
-
+import { OrdemCompraService } from '../ordem-compra.service'
 import { CarrinhoService } from '../carrinho.service'
 import { ItemCarrinho } from '../shared/item-carrinho.model'
+import { Pedido } from '../shared/pedido.model'
 
 @Component({
   selector: 'app-ordem-compra',
