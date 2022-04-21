@@ -43,23 +43,29 @@ export class OrdemCompraComponent implements OnInit {
 
   public confirmarCompra(): void {
     if (this.formulario.status === 'INVALID') {
-      console.log('formulário inválido')
-
-      //* nova forma de marcar todos com os campos como touched
+      //nova forma de marcar todos com os campos como touched
       this.formulario.markAllAsTouched()
 
     } else {
-      let pedido: Pedido = new Pedido(
-        this.formulario.value.endereco,
-        this.formulario.value.numero,
-        this.formulario.value.complemento,
-        this.formulario.value.formaPagamento
-      )
+      if (this.carrinhoService.exibirItens().length === 0) {
+        alert('Você não selecionou nenhum item!')
 
-      this.ordemCompraService.efetivarCompra(pedido)
-        .subscribe((idPedido: number) => {
-          this.idPedidoCompra = idPedido
-        })
+      } else {
+        let pedido: Pedido = new Pedido(
+          this.formulario.value.endereco,
+          this.formulario.value.numero,
+          this.formulario.value.complemento,
+          this.formulario.value.formaPagamento
+        )
+
+        console.log(pedido)
+
+        // this.ordemCompraService.efetivarCompra(pedido)
+        //   .subscribe((idPedido: number) => {
+        //     this.idPedidoCompra = idPedido
+        //   })
+      }
+
     }
   }
 
